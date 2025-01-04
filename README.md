@@ -1,8 +1,5 @@
-# React + Vite
+# Trivia Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- This project uses google gemini api for making the questions that way one can have unlimited amount of questions.
+- The project is Vite + Reactjs
+- Made this project because i wanted a trivia / quiz app that kills time and also beneficial in some way that is add free so when i got this idea. I also wanted to try llm apis since I did not try them before this so got an idea how to write a decent system Prompt (I know the project system Prompt is bad). 
