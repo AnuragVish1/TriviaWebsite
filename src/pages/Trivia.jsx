@@ -43,6 +43,11 @@ const Trivia = () => {
             }
             catch (err) {
                 console.error(err)
+                return (
+                    <>
+                        Error
+                    </>
+                )
             }
             finally {
                 setLoading(false)
@@ -57,13 +62,12 @@ const Trivia = () => {
         SetIsAnswered(true)
         setSelectedAnswer(result[currentIndex].options[option])
         setCorrectAnswer(result[currentIndex].answer)
-        if (selectedAnswer == correctAnswer)
-        {
+        if (selectedAnswer == correctAnswer) {
             SetIsCorrect(true)
             setFinalResult(finalResult + 1)
-           
+
         }
-        
+
 
 
 
@@ -72,21 +76,19 @@ const Trivia = () => {
 
     const handleNextQuestion = () => {
 
-        if (currentIndex < result.length - 1)
-        {
-            SetCurrentIndex(currentIndex + 1)   
+        if (currentIndex < result.length - 1) {
+            SetCurrentIndex(currentIndex + 1)
         }
-        if (currentIndex >= result.length - 1)
-        {
+        if (currentIndex >= result.length - 1) {
             setFinished(true)
         }
-        setProgress(((currentIndex + 1)/result.length)*100)
+        setProgress(((currentIndex + 1) / result.length) * 100)
         SetIsAnswered(false)
 
     }
 
 
-    
+
 
     return (
 
@@ -99,16 +101,16 @@ const Trivia = () => {
                     <h1 className='text-[5rem]'>Your Score:</h1>
                     <h1 className='text-[5rem]'>{finalResult}/{result.length}</h1>
                     <button className='bg-[#eaddcf] rounded-[1.2rem] p-4 w-[10rem] shadow-md hover:scale-95 transition-all border-2 border-[#b9af9f] font-serif mt-6'><NavLink to="/">Play Again</NavLink></button>
-                    </div>
+                </div>
             )}
-            
+
             {loading ? (<l-mirage
                 size="60"
                 speed="2.5"
                 color="black"
             ></l-mirage>) : !finished && (
                 <div className=" lg:w-[60%] lg:h-[70%] w-[75%] h-[80%]  lg:p-5 flex flex-col justify-between transition-all">
-                    <div className={`absolute h-2 transition-all ease-linear bg-pink-500 top-0 left-0`} style={{width: progress + '%'}}></div>
+                    <div className={`absolute h-2 transition-all ease-linear bg-pink-500 top-0 left-0`} style={{ width: progress + '%' }}></div>
                     <div className=' flex flex-col justify-between gap-8'>
                         <div className=" w-[100%] bg-white p-6 text-xl rounded-xl shadow-sm border-2  font-lora tracking-wide" >
                             {result[currentIndex].question}
@@ -133,8 +135,8 @@ const Trivia = () => {
                         <div className=" grid lg:grid-cols-2 h-[60%] gap-[2rem] gap-x-28">
 
                             {result[currentIndex].options.map((option, index) =>
-                                <button className={`shadow-md  rounded-lg hover:scale-95 transition-all flex justify-center items-center text-[1.2rem] border-1 font-lora lg:text-xl p-2 h-[4.2rem] ${isAnswered ? option == correctAnswer ? 'bg-green-400' : option == selectedAnswer ? 'bg-red-300' : "bg-white":"bg-white"}`} onClick={handleUserAnswer.bind(option, index)}
-                                disabled={isAnswered}  key={index}>
+                                <button className={`shadow-md  rounded-lg hover:scale-95 transition-all flex justify-center items-center text-[1.2rem] border-1 font-lora lg:text-xl p-2 h-[4.2rem] ${isAnswered ? option == correctAnswer ? 'bg-green-400' : option == selectedAnswer ? 'bg-red-300' : "bg-white" : "bg-white"}`} onClick={handleUserAnswer.bind(option, index)}
+                                    disabled={isAnswered} key={index}>
                                     {option}
                                 </button>
                             )}
